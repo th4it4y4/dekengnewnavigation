@@ -1,21 +1,61 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {createStackNavigator} from 'react-navigation-stack';
+import {createAppContainer} from 'react-navigation';
+import HomeScreen from './screens/HomeScreen';
+import SigninScreen from './screens/SigninScreen';
+import SignupScreen from './screens/SignupScreen';
+//ส่วนครู
+import Teacher from './screens/Teacher';
+import vocablist1 from './screens/vocablist1';
+import vocablist2 from './screens/vocablist2';
+import vocablist3 from './screens/vocablist3';
+//ส่วนนักเรียน
+import Student from './screens/Student';
+import stdvocab1 from './screens/stdvocab1';
+import stdvocab2 from './screens/stdvocab2';
+import stdvocab3 from './screens/stdvocab3';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+import stdvocabdetail from './screens/stdvocabdetail';
+import update_del1 from './screens/update_del1';
+import update_del2 from './screens/update_del2';
+import update_del3 from './screens/update_del3';
+import welcomeScreen from './screens/WelcomeScreen';
+import WelcomeStudent from './screens/WelcomeStudent';
+import WelcomeTeacher from './screens/WelcomeTeacher';
+//import MyNavigator from './navigation/MyNavigator';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+// import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+// import { NavigationContainer } from "@react-navigation/native";
+
+// const Tab = createBottomTabNavigator({
+//   Vocablist1: vocablist1,
+//   Vocablist2: vocablist2,
+//   Vocablist3: vocablist3
+// });
+
+const stackNavigator = createStackNavigator({
+  
+  Welcome:welcomeScreen,
+  Signup : SignupScreen,
+  Signin: SigninScreen,
+  Home: HomeScreen,
+  WelcomeTeacher:WelcomeTeacher,
+  Teacher: Teacher,
+  Vocablists1: vocablist1,
+  Vocablists2: vocablist2,
+  Vocablists3: vocablist3,
+  WelcomeStudent:WelcomeStudent,
+  
+  Students: Student,
+  หมวดร่างกาย: stdvocab1,
+  หมวดสัตว์: stdvocab2,
+  หมวดสิ่งของ: stdvocab3,
+  Stddetail: stdvocabdetail,
+  Update_del1: update_del1,
+  Update_del2: update_del2,
+  Update_del3: update_del3,
 });
+
+const App = createAppContainer(stackNavigator); //////จำเป็นต้องมี///////////
+
+export default App;
